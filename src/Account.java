@@ -13,6 +13,7 @@ public class Account implements ActionListener {
     private JButton AboutButton;
     private JButton AccountButton;
     private JLabel logoLabel;
+    private JButton terminateJob;
 
     public Account(DummyUser user)
     {
@@ -52,6 +53,12 @@ public class Account implements ActionListener {
         if(source == TutorialButton)
         {
             Tutorial tutorialPage = new Tutorial(user);
+            frame.dispose();
+        }
+        if(source == terminateJob)
+        {
+            //may have to change later to a diff page?? cancellation report page?
+            Donor terminate = new Donor(user);
             frame.dispose();
         }
     }
