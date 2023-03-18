@@ -20,6 +20,8 @@ public class JobDetails implements ActionListener {
     private JButton SubmitButton;
     private JComboBox JobType;
     private JButton SelectFilesButton;
+    private JLabel DurationLabel;
+    private JTextField DurationText;
 
     public JobDetails(DummyUser user)
 {

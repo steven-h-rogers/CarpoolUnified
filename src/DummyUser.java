@@ -7,6 +7,7 @@ public class DummyUser {
     public String lname;
     public Boolean isDonor;
     public Vehicle vehicle;
+    public Job job;
     boolean hasActiveDonation;
 
 
@@ -39,11 +40,22 @@ public class DummyUser {
     {
         return this.vehicle;
     }
+    public Job getJob()
+    {
+        return this.job;
+    }
+
 
     public void setVehicle(Vehicle vehicle)
     {
         this.vehicle = vehicle;
         this.isDonor = true;
+    }
+
+    public void setJob(Job job)
+    {
+        this.job = job;
+        this.isDonor = false;
     }
 
     public void setActive(Boolean status)
