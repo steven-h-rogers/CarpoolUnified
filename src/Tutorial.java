@@ -13,6 +13,17 @@ public class Tutorial implements ActionListener {
     private JButton AboutButton;
     private JButton AccountButton;
     private JLabel logoLabel;
+    private JLabel DonorTutorialLabel;
+    private JLabel DStep1Label;
+    private JLabel DStep2Label;
+    private JLabel DStep3Label;
+    private JLabel DStep4Label;
+    private JLabel RenterTutorialLabel;
+    private JLabel RStep1;
+    private JLabel RStep2;
+    private JLabel RStep3;
+    private JPanel RStep4;
+    private JLabel RStep4Label;
 
     public Tutorial(DummyUser user)
     {
