@@ -39,7 +39,7 @@ public class Job {
         Period period = Period.ofDays((int) duration.toDays());
 
         // Print the period in the format of LocalDateTime
-        LocalDateTime actualDuration = LocalDateTime.of(1, 1, 1, 0, 0)
+         actualDuration = LocalDateTime.of(1, 1, 1, 0, 0)
                 .plus(period)
                 .plusSeconds(duration.getSeconds());
         return actualDuration;
