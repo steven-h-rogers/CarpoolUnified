@@ -1,14 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-public class userCRUD {
-    public userCRUD(String filename) {
+public class ConvertTextToHashmapList {
+
+    List<Map<String , String>> UserMapList  = new ArrayList<Map<String,String>>();
+
+    public ConvertTextToHashmapList(String filename) {
+
         try {
             File myObj = new File("src/db/" + filename);
             // Get the absolute path of file f
@@ -18,11 +18,12 @@ public class userCRUD {
             Scanner myReader = new Scanner(myObj);
 
             // we are going to store all the users in an array of hashmaps
-            List<Map<String , String>> UserMapList  = new ArrayList<Map<String,String>>();
+
 
             int i = 0;
-            String header;
+            String header, userEntry;
             String[] header_attributes = {};
+            String[] user_attributes = {};
 
             HashMap<String, String> User = new HashMap<String, String>();
 
@@ -45,8 +46,11 @@ public class userCRUD {
 
 
                 } else { //data
-                    String userEntry = myReader.nextLine();
-                    String[] user_attributes = userEntry.split(",");
+                    userEntry = myReader.nextLine();
+                    //System.out.println(userEntry);
+                    user_attributes = userEntry.split(",");
+                    //System.out.println(user_attributes[1]);
+
 
                     // clearing the hashmap before entering data
                     User.clear();
@@ -60,12 +64,16 @@ public class userCRUD {
                     // everything into user hashmap list
 
                     // adding a new user to the hash map list
-                    UserMapList.add(i - 1, User);
+                    System.out.println(i);
+                    System.out.println(User);
+                    UserMapList.add(User);
+
                     //System.out.println(userEntry);
                     //System.out.println(User);
                 }
-
                 i++;
+
+
             }
 
             System.out.println(UserMapList);
@@ -75,8 +83,13 @@ public class userCRUD {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+
+    }
+
+    public List<Map<String , String>> returnHashmapList(){
+        return UserMapList;
     }
     public static void main(String[] args) {
-        userCRUD a = new userCRUD("vehicle.txt");
+        ConvertTextToHashmapList a = new ConvertTextToHashmapList("vehicle.txt");
     }
 }
