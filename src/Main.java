@@ -18,7 +18,6 @@ public class Main {
         SignIn.users.add(presetDummy1);
 
 
-
     SignIn signInPage = new SignIn();
 
 

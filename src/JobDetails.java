@@ -4,6 +4,13 @@ import java.awt.Desktop.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Random;
+import java.nio.file.Files;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.util.Scanner;
 
 public class JobDetails implements ActionListener {
     JFrame frame = new JFrame("Job Information");
@@ -61,6 +68,51 @@ public class JobDetails implements ActionListener {
 
         if (source== SubmitButton)
         {
+            Random randomizer = new Random();
+            int userNum = randomizer.nextInt(10000);
+            int jobNum = randomizer.nextInt(10000);
+            String userID = ""+userNum;
+            String jobID = ""+jobNum;
+            String jobType= JobType.getSelectedItem().toString();
+            String duration = DurationText.getText();
+            String completion = MinutesTF.getText();
+            String userEntry = userID+","+jobID+","+jobType+","+duration+","+completion;
+            System.out.println(userEntry);
+
+
+            File myObj = new File("src/db/jobs.txt");
+            // Get the absolute path of file f
+            String absolute = myObj.getAbsolutePath();
+            System.out.println(absolute);
+
+            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
+                Path relative = Paths.get("src/db/jobs.txt");
+                Scanner myReader = new Scanner(absolute);
+               // myReader.useDelimiter("\\Z");
+                String content = "";
+
+                while (myReader.hasNextLine()) {
+                    String line = myReader.nextLine();
+                    System.out.println(line);
+                    content += line;
+                }
+
+                     System.out.println(content);
+
+                writer.write(userEntry);
+            } catch (FileNotFoundException ex) {
+                throw new RuntimeException(ex);
+            } catch (UnsupportedEncodingException ex) {
+                throw new RuntimeException(ex);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            ArrayList<String> jobSelection = new ArrayList<String>();
+            ArrayList<String> timeDuration = new ArrayList<String>();
+            ArrayList<String> timeCompletion = new ArrayList<String>();
+
             /*
             This section will take the job details, store them into
             a job object, stamp the start time, and retrieve stored file information
