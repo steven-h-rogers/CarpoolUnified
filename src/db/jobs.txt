@@ -1,6 +1,10 @@
 userID,jobID,JobType,JobDeadline,JobDuration
-2148,200,Conversion,20,40
-2148,201,Reformatting,40,40
-2151,202,Rendering,35,40
-2154,203,Reformatting,35,50
-2156,204,Processing,90,100
+2148,200,Conversion,20,10
+2148,201,Reformatting,40,20
+2151,202,Rendering,35,30
+2154,203,Reformatting,35,40
+2156,204,Processing,90,50
+2151,202,Rendering,35,30
+2151,202,Rendering,35,30
+2154,203,Reformatting,35,40
+2156,204,Processing,90,50
