@@ -1,14 +1,17 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-public class userCRUD {
-    public userCRUD(String filename) {
+public class ConvertTextToHashmapList {
+
+    List<Map<String , String>> UserMapList  = new ArrayList<Map<String,String>>();
+
+    public ConvertTextToHashmapList(String filename) throws IOException {
+
         try {
             File myObj = new File("src/db/" + filename);
             // Get the absolute path of file f
@@ -18,20 +21,24 @@ public class userCRUD {
             Scanner myReader = new Scanner(myObj);
 
             // we are going to store all the users in an array of hashmaps
-            List<Map<String , String>> UserMapList  = new ArrayList<Map<String,String>>();
 
+            FileReader fr = new FileReader(myObj);
+            BufferedReader br = new BufferedReader(fr);
             int i = 0;
-            String header;
+            String header, userEntry;
             String[] header_attributes = {};
+            String[] user_attributes = {};
+            // String s = br.readLine();
+           // header_attributes = s.split(",");
+           // user_attributes = s.split(",");
 
-            HashMap<String, String> User = new HashMap<String, String>();
 
             while (myReader.hasNextLine()) {
+                HashMap<String, String> User = new HashMap<String, String>();
 
                 if (i == 0) { //header
                     header = myReader.nextLine();
                     header_attributes = header.split(",");
-
                     // length of attributes
                     // System.out.println(header_attributes.length);
 
@@ -45,8 +52,11 @@ public class userCRUD {
 
 
                 } else { //data
-                    String userEntry = myReader.nextLine();
-                    String[] user_attributes = userEntry.split(",");
+                    userEntry = myReader.nextLine();
+                    //System.out.println(userEntry);
+                    user_attributes = userEntry.split(",");
+                    //System.out.println(user_attributes[1]);
+
 
                     // clearing the hashmap before entering data
                     User.clear();
@@ -55,16 +65,27 @@ public class userCRUD {
                     for (int k = 0; k < header_attributes.length; k++){
                         User.put(header_attributes[k], user_attributes[k]);
                     }
+                    /*   UserMapList.add(header_attributes[k],
+                               user_attributes[k]);
+                      //  UserMapList.add(User.put(header_attributes[k], user_attributes[k]));
+                        UserMapList.add(User);
+*/
 
                     // after putting each user's data into user hash map, put
                     // everything into user hashmap list
 
                     // adding a new user to the hash map list
-                    UserMapList.add(i - 1, User);
+                    System.out.println(i);
+                    System.out.println(User);
+                    UserMapList.add(User);
+
+
+                    //UserMapList.add(User);
+                    // UserMapList.add(User);
+
                     //System.out.println(userEntry);
                     //System.out.println(User);
                 }
-
                 i++;
             }
 
@@ -75,8 +96,13 @@ public class userCRUD {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+
     }
-    public static void main(String[] args) {
-        userCRUD a = new userCRUD("vehicle.txt");
+
+    public List<Map<String , String>> returnHashmapList(){
+        return UserMapList;
+    }
+    public static void main(String[] args) throws IOException {
+        ConvertTextToHashmapList a = new ConvertTextToHashmapList("jobs.txt");
     }
 }
