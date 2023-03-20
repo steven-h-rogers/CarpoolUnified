@@ -1,0 +1,24 @@
+CARPOOL (c) 2023
+Created By: Asm, Steven, Maya, Maria, Fairooz
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+Time of Capture: Mon, Mar 20 2023 11:51:41
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+USERS:
+0. Sem
+1. Sem
+2. Sem
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+VEHICLES:
+0. userID,VIN,make,model,year,plateNumber,stateRegistered
+1. 2147,10392,toyota,corolla,2013,LD34D,NY
+2. 2149,10293,honda,civic,2016,R45TT67,PA
+3. 2153,19372,mitsubishi,outlander,2019,PJ3K5,NJ
+4. 2155,19283,mercedes,GLE,2023,FY14H,VT
+5. 2152,10293,toyota,corolla,2010,M33LK5,NY
+6. 9158,1118,toyota,corolla,2007,RJ2k4K,NY
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+JOBS:
+0. Assigned by
+1. Assigned by
+2. Assigned by
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -

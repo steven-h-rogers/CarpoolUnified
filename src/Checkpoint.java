@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,6 +7,8 @@ import java.time.LocalDate;
 
 import java.time.LocalDateTime; // Import the LocalDateTime class
 import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Checkpoint {
     String FILE_NAME = generateFileName();
@@ -73,10 +72,27 @@ public class Checkpoint {
         this.USERS_STRING += "\n";
 
         //loop through users retrieved from database in the future
-        for (int i = 0; i < 3; i++) {
-            this.USERS_STRING += i + ". ";
-            this.USERS_STRING += "Sem";
-            this.USERS_STRING += "\n";
+        try {
+            File myObj = new File("src/db/" + "users.txt");
+            // Get the absolute path of file f
+            String absolute = myObj.getAbsolutePath();
+            System.out.println(absolute);
+
+            Scanner myReader = new Scanner(myObj);
+
+
+            int i = 0;
+            while (myReader.hasNextLine()) {
+                String line = myReader.nextLine();
+                this.USERS_STRING += i + ". ";
+                this.USERS_STRING += line;
+                this.USERS_STRING += "\n";
+
+                i++;
+            }
+        } catch (FileNotFoundException e) {
+            //System.out.println("An error occurred.");
+            e.printStackTrace();
         }
 
 
@@ -91,12 +107,29 @@ public class Checkpoint {
         this.VEHICLES_STRING += "\n";
 
 
-        //loop through vehicles retrieved from database in the future
-        for (int i = 0; i < 3; i++) {
-            this.VEHICLES_STRING += i + ". ";
-            this.VEHICLES_STRING += "Toyota";
-            this.VEHICLES_STRING += "\n";
+        try {
+            File myObj = new File("src/db/" + "vehicle.txt");
+            // Get the absolute path of file f
+            String absolute = myObj.getAbsolutePath();
+            System.out.println(absolute);
+
+            Scanner myReader = new Scanner(myObj);
+
+
+            int i = 0;
+            while (myReader.hasNextLine()) {
+                String line = myReader.nextLine();
+                this.VEHICLES_STRING += i + ". ";
+                this.VEHICLES_STRING += line;
+                this.VEHICLES_STRING += "\n";
+
+                i++;
+            }
+        } catch (FileNotFoundException e) {
+            //System.out.println("An error occurred.");
+            e.printStackTrace();
         }
+
 
 
 
@@ -112,10 +145,27 @@ public class Checkpoint {
 
 
         //loop through vehicles retrieved from database in the future
-        for (int i = 0; i < 3; i++) {
-            this.JOBS_STRING += i + ". ";
-            this.JOBS_STRING += "Assigned by";
-            this.JOBS_STRING += "\n";
+        try {
+            File myObj = new File("src/db/" + "jobs.txt");
+            // Get the absolute path of file f
+            String absolute = myObj.getAbsolutePath();
+            System.out.println(absolute);
+
+            Scanner myReader = new Scanner(myObj);
+
+
+            int i = 0;
+            while (myReader.hasNextLine()) {
+                String line = myReader.nextLine();
+                this.JOBS_STRING += i + ". ";
+                this.JOBS_STRING += line;
+                this.JOBS_STRING += "\n";
+
+                i++;
+            }
+        } catch (FileNotFoundException e) {
+            //System.out.println("An error occurred.");
+            e.printStackTrace();
         }
 
 
