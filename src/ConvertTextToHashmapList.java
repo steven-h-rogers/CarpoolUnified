@@ -8,7 +8,7 @@ import java.io.FileReader;
 
 public class ConvertTextToHashmapList {
 
-    List<Map<String , String>> UserMapList  = new ArrayList<Map<String,String>>();
+    List<Map<String , String>> MapList  = new ArrayList<Map<String,String>>();
 
     public ConvertTextToHashmapList(String filename) throws IOException {
 
@@ -75,9 +75,9 @@ public class ConvertTextToHashmapList {
                     // everything into user hashmap list
 
                     // adding a new user to the hash map list
-                    System.out.println(i);
-                    System.out.println(User);
-                    UserMapList.add(User);
+                    //System.out.println(i);
+                    //System.out.println(User);
+                    MapList.add(User);
 
 
                     //UserMapList.add(User);
@@ -89,20 +89,43 @@ public class ConvertTextToHashmapList {
                 i++;
             }
 
-            System.out.println(UserMapList);
+            //System.out.println(UserMapList);
 
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            //System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
     }
 
     public List<Map<String , String>> returnHashmapList(){
-        return UserMapList;
+        return MapList;
     }
     public static void main(String[] args) throws IOException {
-        ConvertTextToHashmapList a = new ConvertTextToHashmapList("jobs.txt");
+        ConvertTextToHashmapList jobs = new ConvertTextToHashmapList("jobs.txt");
+
+        List<Map<String , String>> jobCompletionTimeList  = new ArrayList<Map<String,String>>();
+
+        for (int i = 0; i < jobs.MapList.size(); i++){
+            Map<String , String> jobEntry = jobs.MapList.get(i);
+
+            int jobEntryCompletionTime = 0;
+            if (i == 0) {
+                jobEntryCompletionTime = Integer.parseInt(jobEntry.get("JobDuration"));
+            } else {
+                Map<String , String> previousJobEntry = jobs.MapList.get(i - 1);
+                jobEntryCompletionTime = Integer.parseInt(previousJobEntry.get("JobCompletionTime"))
+                        + Integer.parseInt(jobEntry.get("JobDuration"));
+            }
+
+            jobEntry.put("JobCompletionTime", "" + jobEntryCompletionTime);
+
+            jobCompletionTimeList.add(jobs.MapList.get(i));
+        }
+
+        System.out.println(jobCompletionTimeList);
+
+
     }
 }
