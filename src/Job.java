@@ -1,11 +1,12 @@
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.random.RandomGenerator;
 import java.time.Duration;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.random.RandomGenerator;
+
 
 public class Job {
     int jobId; // Randomized integer value between 1 to 100000
@@ -13,9 +14,9 @@ public class Job {
     String jobType;
     LocalDateTime jobDeadline;
     LocalDateTime userDuration;// job duration entered by user
-    LocalDateTime actualDuration; // Actual Time to be calculated for job completion
-    LocalDateTime startTime; // Time starts once job is submitted
-    LocalDateTime endTime; // Time ends once job is completed
+    //LocalDateTime actualDuration; // Actual Time to be calculated for job completion
+    //LocalDateTime startTime; // Time starts once job is submitted
+   // LocalDateTime endTime; // Time ends once job is completed
     int redundancy;
 
     public Job(DummyUser user, String jobType, LocalDateTime deadline, LocalDateTime duration)
@@ -35,7 +36,7 @@ public class Job {
         jobId = random.nextInt(100000) + 1;
     }
 
-    public LocalDateTime calculateDuration(){
+    /*public LocalDateTime calculateDuration(){
         // Calculate the duration between the two LocalDateTime variables
         Duration duration = Duration.between(endTime, startTime);
 
@@ -47,16 +48,11 @@ public class Job {
                 .plus(period)
                 .plusSeconds(duration.getSeconds());
         return actualDuration;
-
     }
-
+*/
     void deliver(){
 
     }
 
-
-    public static void main (String[] args) throws IOException {
-
-    }
 
 }
