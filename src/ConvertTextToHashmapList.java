@@ -1,13 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 
 public class ConvertTextToHashmapList {
 
     List<Map<String , String>> UserMapList  = new ArrayList<Map<String,String>>();
 
-    public ConvertTextToHashmapList(String filename) {
+    public ConvertTextToHashmapList(String filename) throws IOException {
 
         try {
             File myObj = new File("src/db/" + filename);
@@ -19,20 +22,23 @@ public class ConvertTextToHashmapList {
 
             // we are going to store all the users in an array of hashmaps
 
-
+            FileReader fr = new FileReader(myObj);
+            BufferedReader br = new BufferedReader(fr);
             int i = 0;
             String header, userEntry;
             String[] header_attributes = {};
             String[] user_attributes = {};
+            // String s = br.readLine();
+           // header_attributes = s.split(",");
+           // user_attributes = s.split(",");
 
-            HashMap<String, String> User = new HashMap<String, String>();
 
             while (myReader.hasNextLine()) {
+                HashMap<String, String> User = new HashMap<String, String>();
 
                 if (i == 0) { //header
                     header = myReader.nextLine();
                     header_attributes = header.split(",");
-
                     // length of attributes
                     // System.out.println(header_attributes.length);
 
@@ -59,6 +65,11 @@ public class ConvertTextToHashmapList {
                     for (int k = 0; k < header_attributes.length; k++){
                         User.put(header_attributes[k], user_attributes[k]);
                     }
+                    /*   UserMapList.add(header_attributes[k],
+                               user_attributes[k]);
+                      //  UserMapList.add(User.put(header_attributes[k], user_attributes[k]));
+                        UserMapList.add(User);
+*/
 
                     // after putting each user's data into user hash map, put
                     // everything into user hashmap list
@@ -68,12 +79,14 @@ public class ConvertTextToHashmapList {
                     System.out.println(User);
                     UserMapList.add(User);
 
+
+                    //UserMapList.add(User);
+                    // UserMapList.add(User);
+
                     //System.out.println(userEntry);
                     //System.out.println(User);
                 }
                 i++;
-
-
             }
 
             System.out.println(UserMapList);
@@ -89,7 +102,7 @@ public class ConvertTextToHashmapList {
     public List<Map<String , String>> returnHashmapList(){
         return UserMapList;
     }
-    public static void main(String[] args) {
-        ConvertTextToHashmapList a = new ConvertTextToHashmapList("vehicle.txt");
+    public static void main(String[] args) throws IOException {
+        ConvertTextToHashmapList a = new ConvertTextToHashmapList("jobs.txt");
     }
 }
