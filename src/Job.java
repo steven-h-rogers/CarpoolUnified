@@ -16,7 +16,7 @@ public class Job {
     LocalDateTime userDuration;// job duration entered by user
     //LocalDateTime actualDuration; // Actual Time to be calculated for job completion
     //LocalDateTime startTime; // Time starts once job is submitted
-   // LocalDateTime endTime; // Time ends once job is completed
+    // LocalDateTime endTime; // Time ends once job is completed
     int redundancy;
 
     public Job(DummyUser user, String jobType, LocalDateTime deadline, LocalDateTime duration)

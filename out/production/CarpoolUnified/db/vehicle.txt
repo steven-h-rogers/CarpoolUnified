@@ -1,6 +1,7 @@
-userID,VIN,make,model,year,plateNumber,stateRegistered,VIN
-2147,9302932,toyota,corolla,2013,LD34D,NY,5Y6F2G7HMJ92D4S3
-2149,1947298,honda,civic,2016,R45TT67,PA,3M52SV57HJI952C7
-2153,3234234,mitsubishi,outlander,2019,PJ3K5,NJ,8J4N3N4NOG53H2J3
-2155,3426765,mercedes,GLE,2023,FY14H,VT,0J3N6K8GT34J6H5
-2152,3455687,toyota,corolla,2010,M33LK5,NY,4B3M5W5NK67J5R6
+userID,VIN,make,model,year,plateNumber,stateRegistered
+2147,10392,toyota,corolla,2013,LD34D,NY
+2149,10293,honda,civic,2016,R45TT67,PA
+2153,19372,mitsubishi,outlander,2019,PJ3K5,NJ
+2155,19283,mercedes,GLE,2023,FY14H,VT
+2152,10293,toyota,corolla,2010,M33LK5,NY
+9158,1118,toyota,corolla,2007,RJ2k4K,NY

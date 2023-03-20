@@ -10,8 +10,6 @@ public class DummyUser {
     public Job job;
     boolean hasActiveDonation;
 
-
-
     public DummyUser(String username, String password)
     {
     this.username = username;
