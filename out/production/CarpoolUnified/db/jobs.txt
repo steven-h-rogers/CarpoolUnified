@@ -8,3 +8,6 @@ userID,jobID,JobType,JobDeadline,JobDuration
 2151,202,Rendering,35,30
 2154,203,Reformatting,35,40
 2156,204,Processing,90,50
+4861,7615,Rendering,44,33
+982,1479,Reformatting,60,10
+8816,2289,Processing,40,20
