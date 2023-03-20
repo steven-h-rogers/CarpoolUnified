@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import java.nio.file.Files;
 import java.nio.charset.StandardCharsets;
@@ -79,35 +80,54 @@ public class JobDetails implements ActionListener {
             String userEntry = userID+","+jobID+","+jobType+","+duration+","+completion;
             System.out.println(userEntry);
 
+            String content = "";
+            // just reading and saving
+            try {
+                File myObj = new File("src/db/" + "jobs.txt");
+                // Get the absolute path of file f
+                String absolute = myObj.getAbsolutePath();
+                System.out.println(absolute);
+                Scanner myReader = new Scanner(myObj);
 
-            File myObj = new File("src/db/jobs.txt");
-            // Get the absolute path of file f
-            String absolute = myObj.getAbsolutePath();
-            System.out.println(absolute);
+                int i = 0;
+                String line;
 
-            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
-                Path relative = Paths.get("src/db/jobs.txt");
-                Scanner myReader = new Scanner(absolute);
-               // myReader.useDelimiter("\\Z");
-                String content = "";
+
 
                 while (myReader.hasNextLine()) {
-                    String line = myReader.nextLine();
-                    System.out.println(line);
-                    content += line;
+                    line = myReader.nextLine();
+                    content += line + "\n";
+                    //content += "\n";
+
+                    i++;
                 }
 
-                     System.out.println(content);
 
-                writer.write(userEntry);
-            } catch (FileNotFoundException ex) {
-                throw new RuntimeException(ex);
-            } catch (UnsupportedEncodingException ex) {
-                throw new RuntimeException(ex);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                System.out.println(content);
+
+                myReader.close();
+
+                // just writing
+                try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
+
+
+                    writer.write(content + userEntry);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            } catch (FileNotFoundException ppp) {
+                //System.out.println("An error occurred.");
+                ppp.printStackTrace();
             }
+
+
+
 
             ArrayList<String> jobSelection = new ArrayList<String>();
             ArrayList<String> timeDuration = new ArrayList<String>();
