@@ -1,6 +1,6 @@
-user,JobType,JobDeadline
-ReginaF,Conversion,20
-ReginaF,Reformatting,40
-ReeseP,Rendering,35
-PeetaM,Reformatting,35
-NickMill,Processing,90
+userID,jobID,JobType,JobDeadline,JobDuration
+2148,200,Conversion,20,40
+2148,201,Reformatting,40,40
+2151,202,Rendering,35,40
+2154,203,Reformatting,35,50
+2156,204,Processing,90,100
