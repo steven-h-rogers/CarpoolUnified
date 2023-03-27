@@ -1,7 +1,7 @@
 CARPOOL (c) 2023
 Created By: Asm, Steven, Maya, Maria, Fairooz
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
-Time of Capture: Mon, Mar 20 2023 11:52:22
+Time of Capture: Mon, Mar 20 2023 12:17:37
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 USERS:
 0. userID,username,password,fname,lname,isDonor,vehicle,hasActiveDonation
@@ -25,7 +25,13 @@ VEHICLES:
 6. 9158,1118,toyota,corolla,2007,RJ2k4K,NY
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 JOBS:
-0. Assigned by
-1. Assigned by
-2. Assigned by
+0. userID,jobID,JobType,JobDeadline,JobDuration
+1. 2148,200,Conversion,20,10
+2. 2148,201,Reformatting,40,20
+3. 2151,202,Rendering,35,30
+4. 2154,203,Reformatting,35,40
+5. 2156,204,Processing,90,50
+6. 2151,202,Rendering,35,30
+7. 2151,202,Rendering,35,30
+8. 2154,203,Reformatting,35,40
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -

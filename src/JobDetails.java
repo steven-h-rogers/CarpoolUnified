@@ -4,14 +4,11 @@ import java.awt.Desktop.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 import java.nio.file.Files;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.nio.file.Path;
-import java.util.Scanner;
 
 public class JobDetails implements ActionListener {
     JFrame frame = new JFrame("Job Information");
@@ -128,6 +125,8 @@ public class JobDetails implements ActionListener {
 
 
 
+            CalculateJobCompletionTime cj = new CalculateJobCompletionTime();
+
 
             ArrayList<String> jobSelection = new ArrayList<String>();
             ArrayList<String> timeDuration = new ArrayList<String>();
@@ -145,8 +144,20 @@ public class JobDetails implements ActionListener {
              */
 
 
-            Home homePage = new Home(user);
-            frame.dispose();
+            admin job = new admin();
+            List<Map<String , String>> a = null;
+            try {
+                a = job.calculateJobDurationTimes("jobs.txt");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            int b = Integer.parseInt(a.get(a.size()-1).get("JobCompletionTime"));
+
+            HaveJobLabel.setText("Thank you! Your job will be completed in "  + b+ " minutes.");
+            SubmitButton.setText("-");
+
+            //Home homePage = new Home(user);
+            //frame.dispose();
         }
     }
 }

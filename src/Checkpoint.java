@@ -20,6 +20,10 @@ public class Checkpoint {
     String VEHICLES_STRING = "";
     String JOBS_STRING = "";
 
+    int TOTAL_JOBS = 0;
+    int TOTAL_USERS = 0;
+    int TOTAL_VEHICLES = 0;
+
     String FILE_STRING =
             HEADING_STRING
                     + TIME_STRING
@@ -90,6 +94,11 @@ public class Checkpoint {
 
                 i++;
             }
+
+            this.TOTAL_USERS = i;
+            this.USERS_STRING += "Total number of jobs: " + this.TOTAL_USERS;
+            this.USERS_STRING += "\n";
+
         } catch (FileNotFoundException e) {
             //System.out.println("An error occurred.");
             e.printStackTrace();
@@ -125,6 +134,11 @@ public class Checkpoint {
 
                 i++;
             }
+
+            this.TOTAL_VEHICLES = i;
+            this.VEHICLES_STRING += "Total number of jobs: " + this.TOTAL_VEHICLES;
+            this.VEHICLES_STRING += "\n";
+
         } catch (FileNotFoundException e) {
             //System.out.println("An error occurred.");
             e.printStackTrace();
@@ -163,6 +177,11 @@ public class Checkpoint {
 
                 i++;
             }
+
+            this.TOTAL_JOBS = i;
+            this.JOBS_STRING += "Total number of jobs: " + this.TOTAL_JOBS;
+            this.JOBS_STRING += "\n";
+
         } catch (FileNotFoundException e) {
             //System.out.println("An error occurred.");
             e.printStackTrace();
