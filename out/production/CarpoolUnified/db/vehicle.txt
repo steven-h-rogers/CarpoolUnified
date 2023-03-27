@@ -5,3 +5,5 @@ userID,VIN,make,model,year,plateNumber,stateRegistered
 2155,19283,mercedes,GLE,2023,FY14H,VT
 2152,10293,toyota,corolla,2010,M33LK5,NY
 9158,1118,toyota,corolla,2007,RJ2k4K,NY
+6168,58254,Toyota,Corolla,2009,NDAFSN,NY
+4831,7362,ford  ,mustang ,2021,1234,new york
