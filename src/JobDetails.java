@@ -4,6 +4,11 @@ import java.awt.Desktop.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.util.*;
+import java.nio.file.Files;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 
 public class JobDetails implements ActionListener {
     JFrame frame = new JFrame("Job Information");
@@ -61,6 +66,72 @@ public class JobDetails implements ActionListener {
 
         if (source== SubmitButton)
         {
+            Random randomizer = new Random();
+            int userNum = randomizer.nextInt(10000);
+            int jobNum = randomizer.nextInt(10000);
+            String userID = ""+userNum;
+            String jobID = ""+jobNum;
+            String jobType= JobType.getSelectedItem().toString();
+            String duration = DurationText.getText();
+            String completion = MinutesTF.getText();
+            String userEntry = userID+","+jobID+","+jobType+","+duration+","+completion;
+            System.out.println(userEntry);
+
+            String content = "";
+            // just reading and saving
+            try {
+                File myObj = new File("src/db/" + "jobs.txt");
+                // Get the absolute path of file f
+                String absolute = myObj.getAbsolutePath();
+                System.out.println(absolute);
+                Scanner myReader = new Scanner(myObj);
+
+                int i = 0;
+                String line;
+
+
+
+                while (myReader.hasNextLine()) {
+                    line = myReader.nextLine();
+                    content += line + "\n";
+                    //content += "\n";
+
+                    i++;
+                }
+
+
+                System.out.println(content);
+
+                myReader.close();
+
+                // just writing
+                try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
+
+
+                    writer.write(content + userEntry);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (UnsupportedEncodingException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            } catch (FileNotFoundException ppp) {
+                //System.out.println("An error occurred.");
+                ppp.printStackTrace();
+            }
+
+
+
+            CalculateJobCompletionTime cj = new CalculateJobCompletionTime();
+
+
+            ArrayList<String> jobSelection = new ArrayList<String>();
+            ArrayList<String> timeDuration = new ArrayList<String>();
+            ArrayList<String> timeCompletion = new ArrayList<String>();
+
             /*
             This section will take the job details, store them into
             a job object, stamp the start time, and retrieve stored file information
@@ -73,8 +144,20 @@ public class JobDetails implements ActionListener {
              */
 
 
-            Home homePage = new Home(user);
-            frame.dispose();
+            admin job = new admin();
+            List<Map<String , String>> a = null;
+            try {
+                a = job.calculateJobDurationTimes("jobs.txt");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            int b = Integer.parseInt(a.get(a.size()-1).get("JobCompletionTime"));
+
+            HaveJobLabel.setText("Thank you! Your job will be completed in "  + b+ " minutes.");
+            SubmitButton.setText("-");
+
+            //Home homePage = new Home(user);
+            //frame.dispose();
         }
     }
 }
