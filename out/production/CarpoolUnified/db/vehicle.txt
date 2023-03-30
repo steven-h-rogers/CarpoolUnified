@@ -7,3 +7,7 @@ userID,VIN,make,model,year,plateNumber,stateRegistered
 9158,1118,toyota,corolla,2007,RJ2k4K,NY
 6168,58254,Toyota,Corolla,2009,NDAFSN,NY
 4831,7362,ford  ,mustang ,2021,1234,new york
+8872,52791,,,,,
+462,70252,,,,,
+9127,97193,,,,,
+2915,25867,,,,,
