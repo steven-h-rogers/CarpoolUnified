@@ -29,6 +29,10 @@ public class JobDetails implements ActionListener {
     private JTextField DurationText;
     private JTextField JobId;
     private JLabel JobIDLabel;
+    private JLabel UserIDLabel;
+    private JTextField UserId;
+    private JLabel SubmissionConfirmLabel;
+    private JLabel JobCompletionLabel;
 
     public JobDetails(DummyUser user)
 {
@@ -68,15 +72,17 @@ public class JobDetails implements ActionListener {
 
         if (source== SubmitButton)
         {
-            Random randomizer = new Random();
-            int userNum = randomizer.nextInt(10000);
-            int jobNum = randomizer.nextInt(10000);
-            String userID = ""+userNum;
-            String jobID = ""+jobNum;
+            SubmissionConfirmLabel.setText("Submission Complete!");
+
+            //Random randomizer = new Random();
+            String userID = UserId.getText();
+            String jobID = JobId.getText();
             String jobType= JobType.getSelectedItem().toString();
-            String duration = DurationText.getText();
-            String completion = MinutesTF.getText();
-            String userEntry = userID+","+jobID+","+jobType+","+duration+","+completion;
+            String deadline = DurationText.getText();
+            String duration = MinutesTF.getText();
+            //String completionTime= ""+b;
+            //JobCompletionLabel.setText(completionTime);
+            String userEntry = userID+","+jobID+","+jobType+","+deadline+","+duration;
             System.out.println(userEntry);
 
             String content = "";
@@ -144,8 +150,6 @@ public class JobDetails implements ActionListener {
             object will be called from the cloud controller to stamp the completion time
             and give a final update to the job
              */
-
-
             admin job = new admin();
             List<Map<String , String>> a = null;
             try {
@@ -155,8 +159,8 @@ public class JobDetails implements ActionListener {
             }
             int b = Integer.parseInt(a.get(a.size()-1).get("JobCompletionTime"));
 
-            HaveJobLabel.setText("Thank you! Your job will be completed in "  + b+ " minutes.");
-            SubmitButton.setText("-");
+            HaveJobLabel.setText("Your job will be completed in "  + b+ " minutes.");
+            SubmitButton.setText("Submit");
 
             //Home homePage = new Home(user);
             //frame.dispose();

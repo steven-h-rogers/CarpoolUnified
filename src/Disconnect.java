@@ -12,6 +12,7 @@ public class Disconnect implements ActionListener {
     private JLabel ThankYouLabel;
     private JLabel DisconnectConfirmationLabel;
     private JPanel Header;
+    private JLabel SubmissionCompleteLabel;
 
 
     public Disconnect(DummyUser user)

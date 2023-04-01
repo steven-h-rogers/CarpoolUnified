@@ -3,7 +3,7 @@
   <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="671" height="400"/>
     </constraints>
     <properties>
       <preferredSize width="640" height="480"/>
@@ -85,11 +85,6 @@
               <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <vspacer id="27496">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
           <vspacer id="6eac0">
             <constraints>
               <grid row="3" column="3" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -126,7 +121,7 @@
               <font name="Microsoft YaHei UI Light" size="26" style="0"/>
               <foreground color="-5720122"/>
               <horizontalAlignment value="11"/>
-              <text value="Thank You For Using Carpool!"/>
+              <text value="Thank You For Using Carpool "/>
             </properties>
           </component>
           <component id="24d1b" class="javax.swing.JLabel" binding="DisconnectConfirmationLabel">
@@ -138,6 +133,19 @@
               <font name="Microsoft YaHei UI Light" size="12"/>
               <foreground color="-5720122"/>
               <text value=""/>
+            </properties>
+          </component>
+          <component id="db9d0" class="javax.swing.JLabel" binding="SubmissionCompleteLabel">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-5720122"/>
+              <enabled value="true"/>
+              <font name="Microsoft YaHei UI Light" size="26" style="0"/>
+              <foreground color="-5720122"/>
+              <horizontalAlignment value="11"/>
+              <text value="Submission Complete!"/>
             </properties>
           </component>
         </children>

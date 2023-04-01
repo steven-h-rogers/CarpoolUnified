@@ -59,12 +59,10 @@ public class VehicleRegistration implements ActionListener {
         Object source = e.getSource();
         if(source == registerButton)
         {
-
             Random randomizer = new Random();
-            int userNum = randomizer.nextInt(10000);
-            int jobNum = randomizer.nextInt(10000);
+
             int vin = randomizer.nextInt(100000);
-            String userID = ""+userNum;
+            String userID =  UserId.getText();
             String VIN = ""+vin;
             String carmake = MakeTF.getText();
             String carmodel = ModelTF.getText();
@@ -129,6 +127,7 @@ public class VehicleRegistration implements ActionListener {
             if (password.equals(user.getPassword()))
             //and if all fields are legitimate
             {
+
                 String make = MakeTF.getText();
                 String model = ModelTF.getText();
                 int year = Integer.parseInt(YearTF.getText());

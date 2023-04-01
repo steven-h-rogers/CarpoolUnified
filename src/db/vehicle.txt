@@ -7,3 +7,7 @@ userID,VIN,make,model,year,plateNumber,stateRegistered
 9158,1118,toyota,corolla,2007,RJ2k4K,NY
 6168,58254,Toyota,Corolla,2009,NDAFSN,NY
 4831,7362,ford  ,mustang ,2021,1234,new york
+1455,46099,car,123,123,123,NY
+1234,67381,car,honda,2020,123456,NYC
+123,44709,car,toyota,2019,56789,NYC
+123,78341,car,toyota,2019,56789,NYC
