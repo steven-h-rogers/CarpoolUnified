@@ -97,7 +97,7 @@
               <font name="Microsoft YaHei UI Light" size="26" style="0"/>
               <foreground color="-5720122"/>
               <horizontalAlignment value="11"/>
-              <text value="What kind of job do you need done?"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="8a339">

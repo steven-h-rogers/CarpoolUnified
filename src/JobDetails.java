@@ -81,11 +81,12 @@ public class JobDetails implements ActionListener {
             String jobType= JobType.getSelectedItem().toString();
             String deadline = DurationText.getText();
             String duration = MinutesTF.getText();
-            //String completionTime= ""+b;
             //JobCompletionLabel.setText(completionTime);
+
+            //String completionTime= ""+b;                        +","+completionTime
             String userEntry = userID+","+jobID+","+jobType+","+deadline+","+duration;
             System.out.println(userEntry);
-           // System.out.println("Time of Submission:"+ LocalDateTime.now());
+            System.out.println("Time of Submission:"+ LocalDateTime.now());
 
             String content = "";
             // just reading and saving
@@ -133,9 +134,6 @@ public class JobDetails implements ActionListener {
                 //System.out.println("An error occurred.");
                 ppp.printStackTrace();
             }
-
-
-
             CalculateJobCompletionTime cj = new CalculateJobCompletionTime();
 
 
@@ -163,10 +161,11 @@ public class JobDetails implements ActionListener {
             int b = Integer.parseInt(a.get(a.size()-1).get("JobCompletionTime"));
 
             HaveJobLabel.setText("Your job will be completed in "  + b+ " minutes.");
-            SubmitButton.setText("Submit");
+            //SubmitButton.setText("Submit");
 
             //Home homePage = new Home(user);
             //frame.dispose();
+
         }
     }
 }

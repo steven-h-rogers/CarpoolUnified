@@ -72,7 +72,7 @@ public class VehicleRegistration implements ActionListener {
             String stateReg = StateTF.getText();
             String vehicleEntry = userID+","+VIN+","+carmake+","+carmodel+","+caryear+","+carplateNum+","+stateReg;
             System.out.println(vehicleEntry);
-            //System.out.println("Time of Registration:"+ LocalDateTime.now());
+           System.out.println("Time of Registration:"+ LocalDateTime.now());
 
             String content = "";
             // just reading and saving
