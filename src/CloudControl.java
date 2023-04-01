@@ -25,6 +25,7 @@ public class CloudControl implements ActionListener {
     private JButton AcceptButton;
     private JButton RejectButton;
     private JLabel RequestInfoLabel;
+    private JButton DisconnectButton;
 
     public CloudControl(){
         frame.setContentPane(BackgroundPanel);

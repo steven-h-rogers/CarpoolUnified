@@ -9,6 +9,18 @@ public class admin {
     private String Fname;
     private String Lname;
 
+    public admin(String Username, String Password, String Fname, String Lname)
+    {
+        this.Username = Username;
+        this.Password = Password;
+        this.Fname = Fname;
+        this.Lname = Lname;
+    }
+
+    public admin(){}
+
+
+
     public static List<Map<String , String>> calculateJobDurationTimes(String job_filename) throws IOException {
         ConvertTextToHashmapList jobs = new ConvertTextToHashmapList(job_filename);
 
