@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.time.Year;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -28,6 +27,8 @@ public class VehicleRegistration implements ActionListener {
     private JTextField StateTF;
     private JPasswordField PwordTF;
     private JPanel back;
+    private JLabel UserIDLabel;
+    private JTextField UserId;
 
     public VehicleRegistration(DummyUser user)
     {
