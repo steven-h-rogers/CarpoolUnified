@@ -27,6 +27,8 @@ public class JobDetails implements ActionListener {
     private JButton SelectFilesButton;
     private JLabel DurationLabel;
     private JTextField DurationText;
+    private JTextField JobId;
+    private JLabel JobIDLabel;
 
     public JobDetails(DummyUser user)
 {
