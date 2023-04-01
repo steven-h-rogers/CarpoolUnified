@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -71,6 +72,7 @@ public class VehicleRegistration implements ActionListener {
             String stateReg = StateTF.getText();
             String vehicleEntry = userID+","+VIN+","+carmake+","+carmodel+","+caryear+","+carplateNum+","+stateReg;
             System.out.println(vehicleEntry);
+            //System.out.println("Time of Registration:"+ LocalDateTime.now());
 
             String content = "";
             // just reading and saving
@@ -101,7 +103,7 @@ public class VehicleRegistration implements ActionListener {
                 try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/db/vehicle.txt"), "utf-8"))) {
 
-                    writer.write(content + vehicleEntry);
+                    writer.write(content + vehicleEntry + "  Time of Registration:"+ LocalDateTime.now());
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
                 } catch (UnsupportedEncodingException ex) {

@@ -4,6 +4,7 @@ import java.awt.Desktop.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.charset.StandardCharsets;
@@ -84,6 +85,7 @@ public class JobDetails implements ActionListener {
             //JobCompletionLabel.setText(completionTime);
             String userEntry = userID+","+jobID+","+jobType+","+deadline+","+duration;
             System.out.println(userEntry);
+           // System.out.println("Time of Submission:"+ LocalDateTime.now());
 
             String content = "";
             // just reading and saving
@@ -117,7 +119,8 @@ public class JobDetails implements ActionListener {
                         new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
 
 
-                    writer.write(content + userEntry);
+                    writer.write(content + userEntry+ "  Time of Submission:"+ LocalDateTime.now());
+
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
                 } catch (UnsupportedEncodingException ex) {

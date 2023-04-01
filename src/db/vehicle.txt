@@ -11,3 +11,5 @@ userID,VIN,make,model,year,plateNumber,stateRegistered
 1234,67381,car,honda,2020,123456,NYC
 123,44709,car,toyota,2019,56789,NYC
 123,78341,car,toyota,2019,56789,NYC
+12345,39646,car,abc,2022,xyz12,NYC
+111,68269,car,xyz,2021,abba00,NY  Time of Registration:2023-04-01T18:11:42.615111300
