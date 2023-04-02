@@ -107,12 +107,14 @@ public class JobDetails implements ActionListener {
             String jobType= JobType.getSelectedItem().toString();
             String deadline = DurationText.getText();
             String duration = MinutesTF.getText();
+            String timeNow = String.valueOf(LocalDateTime.now());
             //JobCompletionLabel.setText(completionTime);
 
             //String completionTime= ""+b;                        +","+completionTime
-            String userEntry = userID+","+jobID+","+jobType+","+deadline+","+duration;
+            String userEntry = userID+","+jobID+","+jobType+
+                    ","+deadline+","+duration+","+timeNow;
             System.out.println(userEntry);
-            System.out.println("Time of Submission:"+ LocalDateTime.now());
+            //System.out.println("Time of Submission:"+ LocalDateTime.now());
 
             String content = "";
             // just reading and saving
@@ -144,7 +146,7 @@ public class JobDetails implements ActionListener {
                 // just writing
                 try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
-                    writer.write(content + userEntry+ "  Time of Submission:"+ LocalDateTime.now());
+                    writer.write(content + userEntry);
 
                     // using socket for client/server, here would be client
                    /* PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
