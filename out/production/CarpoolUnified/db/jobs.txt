@@ -1,2 +1,2 @@
-JobSubmissionTime,JobCompletionTime,userID,jobID,JobType,JobDeadline,JobDuration
-2023-04-02T14:38:33.901484900,111,222,Conversion,4444,333,333
+JobSubmissionTime,userID,jobID,JobType,JobDeadline,JobDuration, JobCompletionTime
+2023-04-02T14:38:33.901484900,111,222,Conversion,0,0,0
