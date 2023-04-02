@@ -55,7 +55,7 @@ public class JobDetails implements ActionListener {
         this.user = user;
 
         //connect the client socket to server
-        Socket socket = null;
+       /* Socket socket = null;
         try {
             socket = new Socket("localhost", 4444);
             //client reads a message from Server
@@ -66,7 +66,7 @@ public class JobDetails implements ActionListener {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+*/
         SelectFilesButton.addActionListener(this);
         HomeButton.addActionListener(this);
         SubmitButton.addActionListener(this);
@@ -144,12 +144,12 @@ public class JobDetails implements ActionListener {
                 // just writing
                 try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
+                    writer.write(content + userEntry+ "  Time of Submission:"+ LocalDateTime.now());
 
                     // using socket for client/server, here would be client
-                    PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
+                   /* PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
                     BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-                    writer.write(content + userEntry+ "  Time of Submission:"+ LocalDateTime.now());
                     messageIn = inputStream.readUTF();
                     // client prints the message received from server to console
                     System.out.println("message received from server: " + "\"" + messageIn + "\"");
@@ -161,7 +161,7 @@ public class JobDetails implements ActionListener {
                     outputStream.close();
                     inputStream.close();
                     socket.close();
-
+*/
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
                 } catch (UnsupportedEncodingException ex) {
