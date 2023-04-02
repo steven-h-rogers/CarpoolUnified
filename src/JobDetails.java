@@ -157,13 +157,13 @@ public class JobDetails implements ActionListener {
                 // just writing
                 try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
-                    writer.write(content + userEntry);
 
                     // using socket for client/server, here would be client
-                   /* PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
-                    BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    //PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
+                  //  BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    writer.write(content + userEntry);
 
-                    messageIn = inputStream.readUTF();
+                   /* messageIn = inputStream.readUTF();
                     // client prints the message received from server to console
                     System.out.println("message received from server: " + "\"" + messageIn + "\"");
 
