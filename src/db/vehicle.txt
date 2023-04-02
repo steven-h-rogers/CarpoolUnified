@@ -1,15 +1,2 @@
-userID,VIN,make,model,year,plateNumber,stateRegistered
-2147,10392,toyota,corolla,2013,LD34D,NY
-2149,10293,honda,civic,2016,R45TT67,PA
-2153,19372,mitsubishi,outlander,2019,PJ3K5,NJ
-2155,19283,mercedes,GLE,2023,FY14H,VT
-2152,10293,toyota,corolla,2010,M33LK5,NY
-9158,1118,toyota,corolla,2007,RJ2k4K,NY
-6168,58254,Toyota,Corolla,2009,NDAFSN,NY
-4831,7362,ford  ,mustang ,2021,1234,new york
-1455,46099,car,123,123,123,NY
-1234,67381,car,honda,2020,123456,NYC
-123,44709,car,toyota,2019,56789,NYC
-123,78341,car,toyota,2019,56789,NYC
-12345,39646,car,abc,2022,xyz12,NYC
-111,68269,car,xyz,2021,abba00,NY  Time of Registration:2023-04-01T18:11:42.615111300
+userID,VIN,make,model,year,plateNumber,stateRegistered,timeRegistration
+111,68269,car,xyz,2021,abba00,NY,2023-04-01T18:11:42.615111300
