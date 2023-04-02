@@ -4,8 +4,13 @@ import java.awt.Desktop.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.Scanner;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.nio.file.Files;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
@@ -14,6 +19,10 @@ import java.nio.file.Path;
 public class JobDetails implements ActionListener {
     JFrame frame = new JFrame("Job Information");
     DummyUser user;
+    static ServerSocket serverSocket;
+    static Socket socket;
+    static DataInputStream inputStream;
+    static DataOutputStream outputStream;
     private JPanel BackgroundPanel;
     private JPanel Header;
     private JLabel logoLabel;
@@ -36,23 +45,40 @@ public class JobDetails implements ActionListener {
     private JLabel JobCompletionLabel;
 
     public JobDetails(DummyUser user)
-{
-    frame.setContentPane(BackgroundPanel);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.pack();
-    frame.setLocationRelativeTo(null);
-    frame.setVisible(true);
+    {
+        frame.setContentPane(BackgroundPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
 
-    this.user = user;
+        this.user = user;
 
-    SelectFilesButton.addActionListener(this);
-    HomeButton.addActionListener(this);
-    SubmitButton.addActionListener(this);
-}
+        //connect the client socket to server
+        Socket socket = null;
+        try {
+            socket = new Socket("localhost", 4444);
+            //client reads a message from Server
+            inputStream = new DataInputStream(socket.getInputStream());
+            outputStream = new DataOutputStream(socket.getOutputStream());
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        SelectFilesButton.addActionListener(this);
+        HomeButton.addActionListener(this);
+        SubmitButton.addActionListener(this);
+    }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //
+        String messageIn = "";
+        String messageOut = "";
+        //
         Object source = e.getSource();
         if (source == HomeButton)
         {
@@ -119,8 +145,22 @@ public class JobDetails implements ActionListener {
                 try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
 
+                    // using socket for client/server, here would be client
+                    PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
+                    BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                     writer.write(content + userEntry+ "  Time of Submission:"+ LocalDateTime.now());
+                    messageIn = inputStream.readUTF();
+                    // client prints the message received from server to console
+                    System.out.println("message received from server: " + "\"" + messageIn + "\"");
+
+
+                    // server sends the message (vehicleEntry array) to client
+                    // in this case messageOut would be vehicleEntry
+                    outputStream.writeUTF(userEntry);
+                    outputStream.close();
+                    inputStream.close();
+                    socket.close();
 
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
@@ -130,10 +170,12 @@ public class JobDetails implements ActionListener {
                     throw new RuntimeException(ex);
                 }
 
+
             } catch (FileNotFoundException ppp) {
                 //System.out.println("An error occurred.");
                 ppp.printStackTrace();
             }
+
             CalculateJobCompletionTime cj = new CalculateJobCompletionTime();
 
 
