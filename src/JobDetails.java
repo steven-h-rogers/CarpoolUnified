@@ -99,6 +99,16 @@ public class JobDetails implements ActionListener {
 
         if (source== SubmitButton)
         {
+
+            admin job = new admin();
+            List<Map<String , String>> oldJobs = null;
+            try {
+                oldJobs = job.calculateJobDurationTimes("jobs.txt");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            int jobCompletionTime= Integer.parseInt(oldJobs.get(oldJobs.size()-1).get("JobCompletionTime"));
+
             SubmissionConfirmLabel.setText("Submission Complete!");
 
             //Random randomizer = new Random();
@@ -107,12 +117,13 @@ public class JobDetails implements ActionListener {
             String jobType= JobType.getSelectedItem().toString();
             String deadline = DurationText.getText();
             String duration = MinutesTF.getText();
+            jobCompletionTime += Integer.parseInt(duration);
             String timeNow = String.valueOf(LocalDateTime.now());
             //JobCompletionLabel.setText(completionTime);
 
             //String completionTime= ""+b;                        +","+completionTime
-            String userEntry = userID+","+jobID+","+jobType+
-                    ","+deadline+","+duration+","+timeNow;
+            String userEntry = timeNow+","+userID+","+jobID+","+jobType+
+                    ","+deadline+","+duration+","+jobCompletionTime;
             System.out.println(userEntry);
             //System.out.println("Time of Submission:"+ LocalDateTime.now());
 
@@ -195,16 +206,18 @@ public class JobDetails implements ActionListener {
             object will be called from the cloud controller to stamp the completion time
             and give a final update to the job
              */
-            admin job = new admin();
-            List<Map<String , String>> a = null;
+
+            List<Map<String , String>> newJobs = null;
             try {
-                a = job.calculateJobDurationTimes("jobs.txt");
+                newJobs = job.calculateJobDurationTimes("jobs.txt");
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-            int b = Integer.parseInt(a.get(a.size()-1).get("JobCompletionTime"));
+            int newJobCompletionTime= Integer.parseInt(newJobs.get(newJobs.size()-1).get("JobCompletionTime"));
 
-            HaveJobLabel.setText("Your job will be completed in "  + b+ " minutes.");
+
+
+            HaveJobLabel.setText("Your job will be completed in "  + newJobCompletionTime + " minutes.");
             //SubmitButton.setText("Submit");
 
             //Home homePage = new Home(user);
