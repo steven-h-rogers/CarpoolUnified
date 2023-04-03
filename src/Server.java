@@ -97,27 +97,7 @@ public class Server {
     }
 
 }
-/*
-    while(true){ // loops to handle multiple clients
-        Socket clientSocket = null;
-        try {
-            clientSocket = serverSocket.accept(); // waits for client connection
-            System.out.println("Client connected: " + clientSocket);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Thread t = new ClientThread(clientSocket);
-        t.start();
-        class ClientThread extends Thread {
-            private Socket clientSocket = null;
 
-            public ClientThread(Socket socket) {
-                super("ClientThread");
-                this.clientSocket = socket;
-            }
-        }
-
- */
 
 
 
