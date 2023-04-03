@@ -19,7 +19,7 @@ import java.nio.file.Path;
 public class JobDetails implements ActionListener {
     JFrame frame = new JFrame("Job Information");
     DummyUser user;
-    static ServerSocket serverSocket;
+    //static ServerSocket serverSocket;
     static Socket socket;
     static DataInputStream inputStream;
     static DataOutputStream outputStream;
@@ -125,6 +125,10 @@ public class JobDetails implements ActionListener {
             String userEntry = timeNow+","+userID+","+jobID+","+jobType+
                     ","+deadline+","+duration+","+jobCompletionTime;
             System.out.println(userEntry);
+            Job job1 = new Job(user,jobType);
+            Requests requests = new Requests(job1);
+
+
             //System.out.println("Time of Submission:"+ LocalDateTime.now());
 
             String content = "";
@@ -157,6 +161,7 @@ public class JobDetails implements ActionListener {
                 // just writing
                 try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/db/jobs.txt"), "utf-8"))) {
+
 
                     // using socket for client/server, here would be client
                     //PrintWriter output = new PrintWriter(socket.getOutputStream(), true);

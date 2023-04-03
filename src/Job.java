@@ -19,11 +19,11 @@ public class Job {
     // LocalDateTime endTime; // Time ends once job is completed
     int redundancy;
 
-    public Job(DummyUser user, String jobType, LocalDateTime deadline, LocalDateTime duration)
+    public Job(DummyUser user, String jobType)
     {
         this.jobType = jobType;
-        this.jobDeadline = deadline;
-        this.userDuration= duration;
+       // this.jobDeadline = deadline;
+       // this.userDuration= duration;
 
         RandomGenerator random = new RandomGenerator() {
             @Override
