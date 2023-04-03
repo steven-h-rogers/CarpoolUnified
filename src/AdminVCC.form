@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="AdminVCC">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="28177" binding="BackgroundPanel" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16047550"/>
+          <preferredSize width="640" height="480"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="e5224" binding="Header" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="150"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15854049"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <toolbar id="90a85" binding="Navbar">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="20"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-10518631"/>
+                  <floatable value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="9a693" class="javax.swing.JButton" binding="DiscButton">
+                    <constraints/>
+                    <properties>
+                      <background color="-10518631"/>
+                      <borderPainted value="false"/>
+                      <focusable value="false"/>
+                      <font name="Trebuchet MS" size="18"/>
+                      <foreground color="-920846"/>
+                      <iconTextGap value="8"/>
+                      <preferredSize width="100" height="40"/>
+                      <requestFocusEnabled value="false"/>
+                      <text value="Disconnect"/>
+                    </properties>
+                  </component>
+                  <hspacer id="ebced">
+                    <constraints/>
+                  </hspacer>
+                </children>
+              </toolbar>
+              <component id="8b987" class="javax.swing.JLabel" binding="logoLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="CPtextLogo-01 (1).png"/>
+                  <text value=" "/>
+                </properties>
+              </component>
+              <vspacer id="5089a">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
+          <vspacer id="7370b">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="ecbca">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="61614">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="3ab57">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="ce52e" class="javax.swing.JLabel" binding="RequestInfo">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-5720122"/>
+              <enabled value="true"/>
+              <font size="14" style="0"/>
+              <foreground color="-5720122"/>
+              <horizontalAlignment value="11"/>
+              <text value="Request Info"/>
+            </properties>
+          </component>
+          <vspacer id="23496">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="a8953">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="66688" class="javax.swing.JButton" binding="AcceptButton">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-14051391"/>
+              <borderPainted value="true"/>
+              <font name="Trebuchet MS" size="24"/>
+              <foreground color="-920846"/>
+              <requestFocusEnabled value="false"/>
+              <text value="Accept"/>
+            </properties>
+          </component>
+          <component id="3ee08" class="javax.swing.JButton" binding="DeclineButton">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-4121312"/>
+              <borderPainted value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <font name="Trebuchet MS" size="24"/>
+              <foreground color="-920846"/>
+              <requestFocusEnabled value="false"/>
+              <text value="Decline"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

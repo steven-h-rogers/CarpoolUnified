@@ -1,4 +1,6 @@
-public class DummyUser {
+import java.io.Serializable;
+
+public class DummyUser implements Serializable {
 
     //public int userID;
     public String username;

@@ -51,6 +51,8 @@ public class HowLong implements ActionListener {
             {
                 Donation donation = new Donation(user.vehicle,duration);
                 Requests requests = new Requests(donation);
+                Client client = new Client();
+                client.run(requests);
                 user.setActive(true);
                 Disconnect disconnect = new Disconnect(user);
                 frame.dispose();

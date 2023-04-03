@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.random.RandomGenerator;
 import java.time.Duration;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Job {
+public class Job implements Serializable {
     int jobId; // Randomized integer value between 1 to 100000
     DummyUser user;
     String jobType;

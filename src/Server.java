@@ -48,11 +48,19 @@ public class Server {
             // server sends a message to client
             outputStream = new DataOutputStream(socket.getOutputStream());
             recieved = (Requests) objectInputStream.readObject();
-
+            System.out.println(recieved.jobRequest.jobType);
+            if(isAccepted == true)
+            {
+                messageOut = "Your request has been accepted!";
+            }
+            else
+            {
+                messageOut = "Your request has been rejected.";
+            }
 
 
             // as long as message is not exit keep reading and sending message to client
-            while (!messageIn.equals("exit")) {
+           /* while (!messageIn.equals("exit")) {
 
 
                 // extract the message from client
@@ -76,6 +84,7 @@ public class Server {
                 // server sends the message to client
                 outputStream.writeUTF(messageOut);
             }
+        */
 
         } catch (Exception e) {
 

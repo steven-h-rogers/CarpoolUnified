@@ -1,4 +1,6 @@
-public class Requests {
+import java.io.Serializable;
+
+public class Requests implements Serializable {
 
     public Job jobRequest;
     public Donation donRequest;

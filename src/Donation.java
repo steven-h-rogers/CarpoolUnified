@@ -1,4 +1,6 @@
-public class Donation {
+import java.io.Serializable;
+
+public class Donation implements Serializable {
     public Vehicle vehicle;
     public int duration;
 
