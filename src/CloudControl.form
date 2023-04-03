@@ -52,7 +52,21 @@
                       <floatable value="false"/>
                     </properties>
                     <border type="none"/>
-                    <children/>
+                    <children>
+                      <component id="26cfd" class="javax.swing.JButton" binding="DisconnectButton">
+                        <constraints/>
+                        <properties>
+                          <background color="-10518631"/>
+                          <borderPainted value="false"/>
+                          <contentAreaFilled value="true"/>
+                          <focusable value="false"/>
+                          <font name="Trebuchet MS" size="14"/>
+                          <foreground color="-920846"/>
+                          <requestFocusEnabled value="false"/>
+                          <text value="Disconnect"/>
+                        </properties>
+                      </component>
+                    </children>
                   </toolbar>
                   <component id="f17ab" class="javax.swing.JLabel" binding="logoLabel">
                     <constraints>
