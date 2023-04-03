@@ -49,6 +49,8 @@ public class HowLong implements ActionListener {
             int duration = Integer.parseInt(MinutesTF.getText());
             if(duration>0)
             {
+                Donation donation = new Donation(user.vehicle,duration);
+                Requests requests = new Requests(donation);
                 user.setActive(true);
                 Disconnect disconnect = new Disconnect(user);
                 frame.dispose();
