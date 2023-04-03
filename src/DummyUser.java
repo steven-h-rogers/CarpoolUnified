@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 public class DummyUser implements Serializable {
 
-    //public int userID;
+    public int userID;
     public String username;
     public String password;
     public String fname;
@@ -44,6 +44,8 @@ public class DummyUser implements Serializable {
     {
         return this.job;
     }
+
+    public int getUserID(){return this.userID;}
 
 
     public void setVehicle(Vehicle vehicle)
