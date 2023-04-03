@@ -13,10 +13,6 @@ import java.net.Socket;
 public class VehicleRegistration implements ActionListener {
     JFrame frame = new JFrame("Registration");
     DummyUser user;
-    static ServerSocket serverSocket;
-    static Socket socket;
-    static DataInputStream inputStream;
-    static DataOutputStream outputStream;
     private JPanel BackgroundPanel;
     private JPanel Workspace;
     private JTextField MakeTF;
@@ -50,20 +46,6 @@ public class VehicleRegistration implements ActionListener {
         this.user = user;
 
 
-        //connect the client socket to server
-        Socket socket = null;
-        try {
-            socket = new Socket("localhost", 4444);
-            //client reads a message from Server
-            inputStream = new DataInputStream(socket.getInputStream());
-            outputStream = new DataOutputStream(socket.getOutputStream());
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
         TutorialButton.addActionListener(this);
         AboutButton.addActionListener(this);
         AccountButton.addActionListener(this);
@@ -79,10 +61,6 @@ public class VehicleRegistration implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        //
-        String messageIn = "";
-        String messageOut = "";
-        //
 
         Object source = e.getSource();
         if(source == registerButton)
@@ -101,7 +79,7 @@ public class VehicleRegistration implements ActionListener {
 
             String vehicleEntry = timeofReg+","+userID+","+VIN+","+carmake+","+carmodel+","+caryear+","+carplateNum+","+stateReg;
             System.out.println(vehicleEntry);
-           System.out.println("Time of Registration:"+ LocalDateTime.now());
+            System.out.println("Time of Registration:"+ LocalDateTime.now());
 
             String content = "";
             // just reading and saving
@@ -131,21 +109,6 @@ public class VehicleRegistration implements ActionListener {
                 // just writing
                 try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/db/vehicle.txt"), "utf-8"))) {
-// using socket for client/server, here would be client
-                    PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
-                    BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    writer.write(content + vehicleEntry);
-                    messageIn = inputStream.readUTF();
-                    // client prints the message received from server to console
-                    System.out.println("message received from server: " + "\"" + messageIn + "\"");
-
-
-                    // server sends the message (vehicleEntry array) to client
-                    // in this case messageOut would be vehicleEntry
-                    outputStream.writeUTF(vehicleEntry);
-                    outputStream.close();
-                    inputStream.close();
-                    socket.close();
 
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);

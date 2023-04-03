@@ -1,2 +1,0 @@
-userID,VIN,make,model,year,plateNumber,stateRegistered,timeRegistration
-111,68269,car,xyz,2021,abba00,NY,2023-04-01T18:11:42.615111300
