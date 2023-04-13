@@ -3,7 +3,7 @@
   <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="593" height="514"/>
+      <xy x="20" y="20" width="593" height="638"/>
     </constraints>
     <properties>
       <preferredSize width="640" height="480"/>
@@ -30,7 +30,7 @@
               <text value=" "/>
             </properties>
           </component>
-          <grid id="8ac8c" binding="Workspace" layout-manager="GridLayoutManager" row-count="11" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="8ac8c" binding="Workspace" layout-manager="GridLayoutManager" row-count="15" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
@@ -109,7 +109,7 @@
               </component>
               <component id="ff458" class="javax.swing.JButton" binding="signUpButton">
                 <constraints>
-                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="100" height="25"/>
                   </grid>
                 </constraints>
@@ -129,12 +129,12 @@
               </vspacer>
               <vspacer id="fc306">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
               <component id="6238a" class="javax.swing.JButton" binding="haveAcctButton">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <actionCommand value="create AccountButton"/>
@@ -171,6 +171,58 @@
                   <disabledTextColor color="-5720122"/>
                   <font name="DialogInput" size="16"/>
                   <foreground color="-5720122"/>
+                </properties>
+              </component>
+              <component id="40aad" class="javax.swing.JTextField" binding="FnameTF">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-15854049"/>
+                  <caretColor color="-5720122"/>
+                  <disabledTextColor color="-5720122"/>
+                  <dragEnabled value="true"/>
+                  <font name="DialogInput" size="16"/>
+                  <foreground color="-5720122"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="5e80b" class="javax.swing.JTextField" binding="LnameTF">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-15854049"/>
+                  <caretColor color="-5720122"/>
+                  <disabledTextColor color="-5720122"/>
+                  <dragEnabled value="true"/>
+                  <font name="DialogInput" size="16"/>
+                  <foreground color="-5720122"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="51402" class="javax.swing.JLabel" binding="FnameLabel">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="8" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Trebuchet MS" size="14"/>
+                  <foreground color="-5720122"/>
+                  <text value="First Name:"/>
+                </properties>
+              </component>
+              <component id="6d241" class="javax.swing.JLabel" binding="lnameLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="8" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Trebuchet MS" size="14"/>
+                  <foreground color="-5720122"/>
+                  <text value="Last Name:"/>
                 </properties>
               </component>
             </children>

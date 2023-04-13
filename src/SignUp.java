@@ -15,6 +15,10 @@ public class SignUp implements ActionListener {
     private JButton haveAcctButton;
     private JPasswordField confirmPasswordTF;
     private JLabel ConfirmPasswordLabel;
+    private JLabel lnameLabel;
+    private JTextField LnameTF;
+    private JTextField FnameTF;
+    private JLabel FnameLabel;
 
     public SignUp()
     {
