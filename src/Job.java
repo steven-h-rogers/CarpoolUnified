@@ -11,6 +11,7 @@ import java.util.Map;
 public class Job {
     int jobId; // Randomized integer value between 1 to 100000
     DummyUser user;
+    int userId;
     String jobType;
     LocalDateTime jobDeadline;
     LocalDateTime userDuration;// job duration entered by user

@@ -1,6 +1,6 @@
 public class DummyUser {
 
-    //public int userID;
+    public int userID;
     public String username;
     public String password;
     public String fname;
@@ -11,6 +11,16 @@ public class DummyUser {
     boolean hasActiveDonation;
 
 
+    public DummyUser(String username, String password, String fname, String lname)
+    {
+        this.username = username;
+        this.password = password;
+        this.fname = fname;
+        this.lname = lname;
+
+
+
+    }
 
     public DummyUser(String username, String password)
     {
