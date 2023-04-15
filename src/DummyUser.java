@@ -10,6 +10,18 @@ public class DummyUser {
     public Job job;
     boolean hasActiveDonation;
 
+    //this constructor will be used to generate DummyUser objects from queries
+    public DummyUser(int userID, String username, String password, String fname, String lname, boolean isDonor, boolean hasActiveDonation)
+    {
+        this.userID=userID;
+        this.username=username;
+        this.password= password;
+        this.fname=fname;
+        this.lname=lname;
+        this.isDonor = isDonor;
+        this.hasActiveDonation=hasActiveDonation;
+    }
+
 
     public DummyUser(String username, String password, String fname, String lname)
     {
