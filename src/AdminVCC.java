@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
@@ -27,29 +28,45 @@ public class AdminVCC {
 
         this.server = server;
 
+        AcceptButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                server.isAccepted(true);
+                server.respond();
+            }
+        });
+        DeclineButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                server.isAccepted(false);
+                server.respond();
+            }
+        });
     }
 
-    public void actionPerformed(ActionEvent e) {
-        //
-        String messageIn = "";
-        String messageOut = "";
-        //
-        Object source = e.getSource();
-        if (source == AcceptButton) {
-            server.isAccepted = true;
-            Requests requests = server.recieved;
-            //write to database
-            //unpack();
+    /* public void actionPerformed(ActionEvent e) {
+         /*
+         String messageIn = "";
+         String messageOut = "";
 
-            frame.dispose();
-        }
-        if (source == DeclineButton) {
-            server.isAccepted = false;
-            frame.dispose();
-        }
-    }
+         Object source = e.getSource();
+         if (source == AcceptButton) {
+             server.isAccepted(true);
+             server.respond();
+             Requests requests = server.recieved;
+             //write to database
+             //unpack();
 
+             frame.dispose();
+         }
+         if (source == DeclineButton) {
+             server.isAccepted(false);
+             server.respond();
+             frame.dispose();
+         }
+     }
 
+ */
     //method for unpack
     public void write(String input) {
         String content = "";
@@ -86,19 +103,19 @@ public class AdminVCC {
 
     public String unpack(Requests requests){
         if (requests.jobRequest != null){
-           int jobID = requests.jobRequest.jobId;
-           DummyUser user = requests.jobRequest.user;
-           int userID = user.getUserID();
-           String jobType = requests.jobRequest.jobType;
+            int jobID = requests.jobRequest.jobId;
+            DummyUser user = requests.jobRequest.user;
+            int userID = user.getUserID();
+            String jobType = requests.jobRequest.jobType;
 
 
-           String jobInput = ""+jobID+userID+jobType;
-           return jobInput;
-          // LocalDateTime jobDeadline;
-          // LocalDateTime userDuration;
+            String jobInput = ""+jobID+userID+jobType;
+            return jobInput;
+            // LocalDateTime jobDeadline;
+            // LocalDateTime userDuration;
         }
         if (requests.donRequest != null){
-           String make = requests.donRequest.vehicle.make;
+            String make = requests.donRequest.vehicle.make;
             String model = requests.donRequest.vehicle.model;
             int year = requests.donRequest.vehicle.year;
             String plateNum= requests.donRequest.vehicle.plateNumber;

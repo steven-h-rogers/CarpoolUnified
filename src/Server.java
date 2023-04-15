@@ -1,9 +1,9 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Server {
 
@@ -21,14 +21,16 @@ public class Server {
     static DataInputStream inputStream;
     static DataOutputStream outputStream;
     static Requests recieved;
-    public static boolean isAccepted = false;
-
+    private boolean approved;
+    String messageIn = "";
+    String messageOut = "";
     public Server(){}
+    public boolean isAccepted(Boolean approved){
+        return this.approved=approved;
+    }
+    public  void run() {
 
-    public static void run() {
 
-        String messageIn = "";
-        String messageOut = "";
 
         try {
 
@@ -49,14 +51,6 @@ public class Server {
             outputStream = new DataOutputStream(socket.getOutputStream());
             recieved = (Requests) objectInputStream.readObject();
             System.out.println(recieved.jobRequest.jobType);
-            if(isAccepted == true)
-            {
-                messageOut = "Your request has been accepted!";
-            }
-            else
-            {
-                messageOut = "Your request has been rejected.";
-            }
 
 
             // as long as message is not exit keep reading and sending message to client
@@ -90,13 +84,21 @@ public class Server {
 
             e.printStackTrace();
         }
-
-
-
-
     }
+    public void respond () {
+        try {
+            if (approved == true) {
+                messageOut = "Your request has been accepted!";
+            } else {
+                messageOut = "Your request has been rejected.";
+            }
+            outputStream.writeUTF(messageOut);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-}
+
+    }}
 
 
 
