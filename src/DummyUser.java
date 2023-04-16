@@ -66,6 +66,8 @@ public class DummyUser {
     {
         return this.vehicle;
     }
+    public String getFname(){ return this.fname;}
+    public String getLname(){return this.lname;}
     public Job getJob()
     {
         return this.job;

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -48,7 +49,14 @@ public class SignIn implements ActionListener
         {
             String username = usernameTF.getText();
             String password = String.valueOf(PasswordTF.getPassword());
-            DummyUser user = findUser(username,password);
+
+            //DummyUser user = findUser(username,password);
+            DummyUser user = null;
+            try {
+                user = UserDBAccess.checkCredentials(username,password);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             if(user != null)
             {
                 Home homePage = new Home(user);
