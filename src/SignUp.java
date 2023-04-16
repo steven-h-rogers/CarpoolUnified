@@ -49,11 +49,14 @@ public class SignUp implements ActionListener {
             String username = usernameTF.getText();
             String password = String.valueOf(passwordTF.getPassword());
             String confirmation = String.valueOf(confirmPasswordTF.getPassword());
+            String fname = FnameTF.getText();
+            String lname = LnameTF.getText();
             try {
                 if(checkSignUp(username,password,confirmation))
                 {
                     //arrayList add represents insert into database
-                    DummyUser dummy = new DummyUser(username,password);
+                    DummyUser dummy = new DummyUser(username,password,fname,lname);
+                    UserDBAccess.insert(dummy);
                     SignIn.users.add(dummy);
                     SignIn signInPage = new SignIn();
                     frame.dispose();
@@ -67,7 +70,6 @@ public class SignUp implements ActionListener {
     //helper methods
 
     public boolean checkSignUp(String username, String password, String confirmation) throws SQLException {
-        System.out.println(UserDBAccess.usernameTaken(username));
 
         if (UserDBAccess.usernameTaken(username) == false)
         {
