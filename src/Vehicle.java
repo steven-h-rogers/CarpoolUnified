@@ -1,7 +1,7 @@
 public class Vehicle {
 
     public DummyUser user;
-    public String userId;
+    public int userId;
     public String make ;
     public String model ;
     public int year;
@@ -18,7 +18,8 @@ public class Vehicle {
         this.stateRegistered = stateRegistered;
     }
 
-    public Vehicle(String userID, String make, String model, int year, String plateNumber, String stateRegistered)
+    //DB constructor
+    public Vehicle(int userID, String make, String model, int year, String plateNumber, String stateRegistered)
     {
         this.make = make;
         this.model = model;
@@ -28,7 +29,12 @@ public class Vehicle {
         this.userId = userID;
     }
 
-
+    public String getPlateNumber(){return this.plateNumber;}
+    public String getStateRegistered(){return this.stateRegistered;}
+    public String getMake(){return this.make;}
+    public String getModel(){return this.model;}
+    public int getYear(){return this.year;}
+    public int getUserId(){return this.userId;}
 
 
 }

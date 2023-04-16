@@ -44,6 +44,25 @@ public class UserDBAccess {
 
     }
 
+    public static Boolean updateDonorStatus(Boolean status, int userID) throws SQLException{
+
+        conn = DBConnection.getMyConnection();
+        String query = "UPDATE user SET isDonor = ? WHERE userId =?;";
+
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setBoolean(1,status);
+        stmt.setInt(2,userID);
+
+        int result = stmt.executeUpdate();
+        if(result ==0)
+        {
+            return false;
+        }
+        else
+            return true;
+
+    }
+
     public static DummyUser checkCredentials(String username, String password) throws SQLException{
 
         conn= DBConnection.getMyConnection();
