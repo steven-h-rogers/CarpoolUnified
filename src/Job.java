@@ -14,7 +14,7 @@ public class Job {
     int userId;
     String jobType;
     LocalDateTime jobDeadline;
-    LocalDateTime userDuration;// job duration entered by user
+    //LocalDateTime userDuration;// job duration entered by user
     int duration; // Actual Time to be calculated for job completion
     LocalDateTime startTime; // Time starts once job is submitted
     LocalDateTime endTime; // Time ends once job is completed
@@ -22,14 +22,14 @@ public class Job {
 
 
     //this constructor will be used to generate complete job objects from queries
-    public Job(int jobId, int userId, String jobType, LocalDateTime jobDeadline, LocalDateTime userDuration,
-                               LocalDateTime startTime, LocalDateTime endTime, int duration, int redundancy){
+    public Job(int jobId, int userId, String jobType, LocalDateTime jobDeadline,
+               LocalDateTime startTime, LocalDateTime endTime, int duration, int redundancy){
 
         this.jobId=jobId;
         this.userId=userId;
         this.jobType=jobType;
         this.jobDeadline=jobDeadline;
-        this.userDuration=userDuration;
+        //this.userDuration=userDuration;
         this.startTime=startTime;
         this.endTime=endTime;
         this.duration = duration;
@@ -41,7 +41,7 @@ public class Job {
     {
         this.jobType = jobType;
         this.jobDeadline = deadline;
-        this.userDuration= duration;
+       // this.userDuration= duration;
 
         RandomGenerator random = new RandomGenerator() {
             @Override
@@ -51,7 +51,7 @@ public class Job {
         };
 
         // Generate a random integer between 1 and 100 and assign it to the jobId variable
-        jobId = random.nextInt(100000) + 1;
+       // jobId = random.nextInt(100000) + 1;
     }
 
     /*public LocalDateTime calculateDuration(){

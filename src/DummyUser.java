@@ -72,6 +72,7 @@ public class DummyUser {
     {
         return this.job;
     }
+    public int getUserID(){return this.userID;}
 
 
     public void setVehicle(Vehicle vehicle)

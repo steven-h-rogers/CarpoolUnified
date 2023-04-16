@@ -11,3 +11,6 @@ userID,VIN,make,model,year,plateNumber,stateRegistered
 462,70252,,,,,
 9127,97193,,,,,
 2915,25867,,,,,
+6,Honda,Civic,2022,Abb-1234,NY
+6,Honda,Civic,2021,ABC-4321,NY
+6,Honda,Civic,2020,BBB-2123,NJ
