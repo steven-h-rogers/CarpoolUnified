@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class SignUp implements ActionListener {
     JFrame frame = new JFrame("Sign Up");
@@ -48,25 +49,33 @@ public class SignUp implements ActionListener {
             String username = usernameTF.getText();
             String password = String.valueOf(passwordTF.getPassword());
             String confirmation = String.valueOf(confirmPasswordTF.getPassword());
-            if(checkSignUp(username,password,confirmation))
-            {
-                //arrayList add represents insert into database
-                DummyUser dummy = new DummyUser(username,password);
-                SignIn.users.add(dummy);
-                SignIn signInPage = new SignIn();
-                frame.dispose();
+            try {
+                if(checkSignUp(username,password,confirmation))
+                {
+                    //arrayList add represents insert into database
+                    DummyUser dummy = new DummyUser(username,password);
+                    SignIn.users.add(dummy);
+                    SignIn signInPage = new SignIn();
+                    frame.dispose();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
         }
     }
 
     //helper methods
 
-    public boolean checkSignUp(String username, String password, String confirmation)
-    {
-    //if username is in database already, return false
-        if(password.equals(confirmation)&&password.length()>=4)
+    public boolean checkSignUp(String username, String password, String confirmation) throws SQLException {
+        System.out.println(UserDBAccess.usernameTaken(username));
+
+        if (UserDBAccess.usernameTaken(username) == false)
         {
-            return true;
+
+            if (password.equals(confirmation) && password.length() >= 4) {
+                return true;
+            }
+            else return false;
         }
         else
         {
